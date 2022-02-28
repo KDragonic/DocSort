@@ -118,5 +118,29 @@ namespace DocSort.Properties {
                 this["FillWindowMod"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ColWidth_6 {
+            get {
+                return ((int)(this["ColWidth_6"]));
+            }
+            set {
+                this["ColWidth_6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ColWidth_7 {
+            get {
+                return ((int)(this["ColWidth_7"]));
+            }
+            set {
+                this["ColWidth_7"] = value;
+            }
+        }
     }
 }
