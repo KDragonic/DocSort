@@ -15,9 +15,51 @@ namespace DocSort
             InitializeComponent();
             startGenColumns();
             loadingSettings();
+            creatMainFolder();
         }
 
         private bool endLoadingSetting = false;
+
+        private bool isMainFolder()
+        {
+            Properties.Settings.Default.pathMainFolder = "";
+            if (Properties.Settings.Default.pathMainFolder == null || Properties.Settings.Default.pathMainFolder == "")
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.Description = "Выберите папку куда будут копироватся файлы";
+                while (true)
+                {
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Properties.Settings.Default.pathMainFolder = dialog.SelectedPath;
+                        Properties.Settings.Default.Save();
+                        break;
+                    }
+                }
+            }
+
+            if (Directory.Exists(Properties.Settings.Default.pathMainFolder))
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private void creatMainFolder()
+        {
+            try
+            {
+                if (isMainFolder())
+                {
+                    Directory.CreateDirectory(Properties.Settings.Default.pathMainFolder);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
 
         public void loadingSettings()
         {

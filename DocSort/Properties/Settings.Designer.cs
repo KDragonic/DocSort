@@ -142,5 +142,17 @@ namespace DocSort.Properties {
                 this["ColWidth_7"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string pathMainFolder {
+            get {
+                return ((string)(this["pathMainFolder"]));
+            }
+            set {
+                this["pathMainFolder"] = value;
+            }
+        }
     }
 }
