@@ -133,18 +133,6 @@ namespace DocSort.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ColWidth_7 {
-            get {
-                return ((int)(this["ColWidth_7"]));
-            }
-            set {
-                this["ColWidth_7"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string pathMainFolder {
             get {
@@ -152,6 +140,38 @@ namespace DocSort.Properties {
             }
             set {
                 this["pathMainFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">
+  <string>Кон. работы</string>
+  <string>Курсовые</string>
+  <string>Медичка</string>
+  <string>Отчёт</string>
+  <string>Сам. работы</string>
+  <string>Учебный план</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection types {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["types"]));
+            }
+            set {
+                this["types"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string authers {
+            get {
+                return ((string)(this["authers"]));
+            }
+            set {
+                this["authers"] = value;
             }
         }
     }

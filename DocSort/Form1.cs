@@ -15,51 +15,12 @@ namespace DocSort
             InitializeComponent();
             startGenColumns();
             loadingSettings();
-            creatMainFolder();
+            MainFolder.creatMainFolder();
+            if (Properties.Settings.Default.pathMainFolder != null) Reindexing();
         }
 
         private bool endLoadingSetting = false;
-
-        private bool isMainFolder()
-        {
-            Properties.Settings.Default.pathMainFolder = "";
-            if (Properties.Settings.Default.pathMainFolder == null || Properties.Settings.Default.pathMainFolder == "")
-            {
-                FolderBrowserDialog dialog = new FolderBrowserDialog();
-                dialog.Description = "Выберите папку куда будут копироватся файлы";
-                while (true)
-                {
-                    if (dialog.ShowDialog() == DialogResult.OK)
-                    {
-                        Properties.Settings.Default.pathMainFolder = dialog.SelectedPath;
-                        Properties.Settings.Default.Save();
-                        break;
-                    }
-                }
-            }
-
-            if (Directory.Exists(Properties.Settings.Default.pathMainFolder))
-            {
-                return true;
-            }
-            else return false;
-        }
-
-        private void creatMainFolder()
-        {
-            try
-            {
-                if (isMainFolder())
-                {
-                    Directory.CreateDirectory(Properties.Settings.Default.pathMainFolder);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
+        
 
         public void loadingSettings()
         {
@@ -76,7 +37,6 @@ namespace DocSort
                 listFile.Columns[3].Width = Properties.Settings.Default.ColWidth_4;
                 listFile.Columns[4].Width = Properties.Settings.Default.ColWidth_5;
                 listFile.Columns[5].Width = Properties.Settings.Default.ColWidth_6;
-                listFile.Columns[6].Width = Properties.Settings.Default.ColWidth_7;
             }
 
             openButton.BackColor = Color.FromArgb(50, openButton.BackColor.R, openButton.BackColor.G, openButton.BackColor.B);
@@ -97,20 +57,19 @@ namespace DocSort
         public void startGenColumns()
         {
             listFile.Columns.Add("Имя");
-            listFile.Columns.Add("Путь");
             listFile.Columns.Add("Раширения");
             listFile.Columns.Add("Автор");
             listFile.Columns.Add("Тип");
-            listFile.Columns.Add("Добавления");
+            listFile.Columns.Add("Создание");
             listFile.Columns.Add("Изменения");
         }
 
-        private void genListEntry()
+        private void reGenListEntrys()
         {
             listFile.Items.Clear();
             foreach (var docFile in docFiles)
             {
-                addEntry(docFile.name, docFile.relPath, docFile.extension, docFile.auther, docFile.type, DateTime.Now.ToString(), DateTime.Now.ToString());
+                addEntry(docFile.name, docFile.extension, docFile.auther, docFile.type, docFile.dateCreate.ToString(), docFile.dateModified.ToString());
             }
         }
 
@@ -132,13 +91,16 @@ namespace DocSort
             Properties.Settings.Default.ColWidth_4 = listFile.Columns[3].Width;
             Properties.Settings.Default.ColWidth_5 = listFile.Columns[4].Width;
             Properties.Settings.Default.ColWidth_6 = listFile.Columns[5].Width;
-            Properties.Settings.Default.ColWidth_7 = listFile.Columns[6].Width;
             Properties.Settings.Default.Save();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+            var files = listFile.SelectedItems;
+            foreach (var item in files)
+            {
+                
+            }
         }
 
         private void openButton_Click(object sender, EventArgs e)
@@ -172,17 +134,8 @@ namespace DocSort
 
         private void addFile(string filePath)
         {
-            string name = Path.GetFileNameWithoutExtension(filePath);
-            string nameFill = Path.GetFileName(filePath);
-            string extension = Path.GetExtension(filePath);
-
-            string auther = "Денис";
-            string type = "Отчёт";
-
-            string relPath = "./" + auther + "/" + type + "/" + nameFill;
-
-            docFiles.Add(new DocFile(name, relPath, auther, type, extension));
-            genListEntry();
+            docFiles.Add(new DocFile(filePath, true));
+            reGenListEntrys();
         }
 
         private void listFile_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,6 +156,26 @@ namespace DocSort
                 removeButton.BackColor = Color.FromArgb(50, removeButton.BackColor.R, removeButton.BackColor.G, removeButton.BackColor.B);
                 editButton.BackColor = Color.FromArgb(50, editButton.BackColor.R, editButton.BackColor.G, editButton.BackColor.B);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reindexing()
+        {
+            docFiles.Clear();
+            string[] FilesPath = Directory.GetFiles(Properties.Settings.Default.pathMainFolder, "*.*", SearchOption.AllDirectories);
+            foreach (var filePath in FilesPath) {
+                docFiles.Add(new DocFile(filePath, false));
+            }
+            reGenListEntrys();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reindexing();
         }
     }
 }

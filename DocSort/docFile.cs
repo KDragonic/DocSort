@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,18 +10,62 @@ namespace DocSort
     class DocFile
     {
         public string name;
-        public string relPath;
         public string auther;
         public string type;
         public string extension;
+        public DateTime dateCreate;
+        public DateTime dateModified;
 
-        public DocFile(string name, string relPath, string auther, string type, string extension)
+        public DocFile(string path, bool isCopy)
         {
-            this.name = name;
-            this.relPath = relPath;
-            this.auther = auther;
-            this.type = type;
-            this.extension = extension;
+            string name = Path.GetFileNameWithoutExtension(path);
+            if (name == "") name = "(пусто)";
+            string extension = Path.GetExtension(path);
+            if (isCopy)
+            {
+                addFile form = new addFile(name);
+                form.ShowDialog();
+                if (form.data["name"] == null) return;
+                this.name = form.data["name"];
+                this.auther = form.data["auther"];
+                this.type = form.data["type"];
+                this.extension = extension;
+                this.dateCreate = File.GetCreationTime(path);
+                this.dateModified = File.GetLastWriteTime(path);
+
+                string pathFolder = Properties.Settings.Default.pathMainFolder + "/" + this.auther + "/" + this.type;
+
+                if (!isFolder(pathFolder)) creatFolders(pathFolder);
+                copyFile(Path.Combine(pathFolder, name), path);
+            }
+            else
+            {
+                var folderNames = getFolderNames(path);
+
+                this.name = name;
+                this.auther = folderNames["auther"];
+                this.type = folderNames["type"];
+                this.extension = extension;
+                this.dateCreate = File.GetCreationTime(path);
+                this.dateModified = File.GetLastWriteTime(path);
+            }
         }
+
+        private Dictionary<string, string> getFolderNames(string path)
+        {
+            Dictionary<string, string> folderNames = new Dictionary<string, string>();
+            // "auther", "type", "name";
+
+            var folderNamesAll = path.Split('\\');
+            folderNames["type"] = folderNamesAll[folderNamesAll.Length - 2];
+            folderNames["auther"] = folderNamesAll[folderNamesAll.Length - 3];
+
+            return folderNames;
+        }
+
+        private void creatFolders(string pathFolder) => Directory.CreateDirectory(pathFolder);
+        private bool isFolder(string pathFolder) => Directory.Exists(pathFolder);
+        private void copyFile(string newPath, string oldPath) => File.Copy(oldPath, newPath);
+        protected void removeFile(string path) => File.Delete(path);
     }
 }
