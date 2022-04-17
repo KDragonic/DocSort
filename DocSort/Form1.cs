@@ -177,5 +177,11 @@ namespace DocSort
         {
             Reindexing();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.ShowDialog(); 
+        }
     }
 }
