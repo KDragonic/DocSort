@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -20,7 +21,7 @@ namespace DocSort
         }
 
         private bool endLoadingSetting = false;
-        
+
 
         public void loadingSettings()
         {
@@ -96,16 +97,31 @@ namespace DocSort
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            var files = listFile.SelectedItems;
-            foreach (var item in files)
+            var items = listFile.SelectedItems;
+            DialogResult resualt = MessageBox.Show($"Вы уверены что хотите УДАЛИТЬ {items.Count} файлов?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resualt.ToString() == "Yes")
             {
-                
+                foreach (ListViewItem item in items)
+                {
+                    var path = Properties.Settings.Default.pathMainFolder + "\\" + item.SubItems[2].Text + "\\" + item.SubItems[3].Text + "\\" + item.SubItems[0].Text + item.SubItems[1].Text;
+                    File.Delete(path);
+                }
             }
         }
 
         private void openButton_Click(object sender, EventArgs e)
         {
-
+            var items = listFile.SelectedItems;
+            if (items.Count > 6)
+            {
+                DialogResult resualt = MessageBox.Show($"Вы уверены что хотите отрыть {items.Count} файлов?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resualt.ToString() == "No") return;
+            }
+            foreach (ListViewItem item in items)
+            {
+                var path = Properties.Settings.Default.pathMainFolder + "\\" + item.SubItems[2].Text + "\\" + item.SubItems[3].Text + "\\" + item.SubItems[0].Text + item.SubItems[1].Text;
+                Process.Start(path);
+            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -166,14 +182,16 @@ namespace DocSort
         private void Reindexing()
         {
             docFiles.Clear();
+            if (Properties.Settings.Default.pathMainFolder.Length <= 3) MainFolder.setPathMainFolder();
             string[] FilesPath = Directory.GetFiles(Properties.Settings.Default.pathMainFolder, "*.*", SearchOption.AllDirectories);
-            foreach (var filePath in FilesPath) {
+            foreach (var filePath in FilesPath)
+            {
                 docFiles.Add(new DocFile(filePath, false));
             }
             reGenListEntrys();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_reindexing_Click(object sender, EventArgs e)
         {
             Reindexing();
         }
@@ -181,7 +199,12 @@ namespace DocSort
         private void button2_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
-            settings.ShowDialog(); 
+            settings.ShowDialog();
+        }
+
+        private void inputSearch_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -176,5 +176,29 @@ namespace DocSort.Properties {
                 this["authers"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool additional_decorations {
+            get {
+                return ((bool)(this["additional_decorations"]));
+            }
+            set {
+                this["additional_decorations"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool advanced_mode {
+            get {
+                return ((bool)(this["advanced_mode"]));
+            }
+            set {
+                this["advanced_mode"] = value;
+            }
+        }
     }
 }
