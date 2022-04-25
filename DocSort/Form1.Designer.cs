@@ -48,10 +48,10 @@
             this.listFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listFile.FullRowSelect = true;
             this.listFile.HideSelection = false;
-            this.listFile.Location = new System.Drawing.Point(0, 62);
-            this.listFile.Margin = new System.Windows.Forms.Padding(2);
+            this.listFile.Location = new System.Drawing.Point(0, 76);
+            this.listFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listFile.Name = "listFile";
-            this.listFile.Size = new System.Drawing.Size(790, 410);
+            this.listFile.Size = new System.Drawing.Size(1047, 504);
             this.listFile.TabIndex = 0;
             this.listFile.UseCompatibleStateImageBehavior = false;
             this.listFile.View = System.Windows.Forms.View.Details;
@@ -65,10 +65,10 @@
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(8, 8);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2);
+            this.addButton.Location = new System.Drawing.Point(5, 9);
+            this.addButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(176, 50);
+            this.addButton.Size = new System.Drawing.Size(235, 62);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
@@ -82,10 +82,10 @@
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(189, 8);
-            this.editButton.Margin = new System.Windows.Forms.Padding(2);
+            this.editButton.Location = new System.Drawing.Point(246, 9);
+            this.editButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(176, 50);
+            this.editButton.Size = new System.Drawing.Size(235, 62);
             this.editButton.TabIndex = 1;
             this.editButton.Text = "Изменить";
             this.editButton.UseVisualStyleBackColor = false;
@@ -99,10 +99,10 @@
             this.openButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.openButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.openButton.ForeColor = System.Drawing.Color.White;
-            this.openButton.Location = new System.Drawing.Point(370, 8);
-            this.openButton.Margin = new System.Windows.Forms.Padding(2);
+            this.openButton.Location = new System.Drawing.Point(487, 9);
+            this.openButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(176, 50);
+            this.openButton.Size = new System.Drawing.Size(235, 62);
             this.openButton.TabIndex = 1;
             this.openButton.Text = "Открыть";
             this.openButton.UseVisualStyleBackColor = false;
@@ -116,10 +116,10 @@
             this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.removeButton.ForeColor = System.Drawing.Color.White;
-            this.removeButton.Location = new System.Drawing.Point(550, 8);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.removeButton.Location = new System.Drawing.Point(727, 9);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(176, 50);
+            this.removeButton.Size = new System.Drawing.Size(235, 62);
             this.removeButton.TabIndex = 1;
             this.removeButton.Text = "Удалить";
             this.removeButton.UseVisualStyleBackColor = false;
@@ -129,12 +129,12 @@
             // 
             this.inputSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.inputSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.inputSearch.Location = new System.Drawing.Point(0, 499);
+            this.inputSearch.Location = new System.Drawing.Point(0, 616);
             this.inputSearch.Margin = new System.Windows.Forms.Padding(0);
             this.inputSearch.Name = "inputSearch";
-            this.inputSearch.Size = new System.Drawing.Size(790, 26);
+            this.inputSearch.Size = new System.Drawing.Size(1048, 30);
             this.inputSearch.TabIndex = 3;
-            this.inputSearch.Text = "Поиск - Фильтер";
+            this.inputSearch.Text = "Поиск";
             this.inputSearch.TextChanged += new System.EventHandler(this.inputSearch_TextChanged);
             // 
             // button_reindexing
@@ -145,10 +145,10 @@
             this.button_reindexing.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_reindexing.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_reindexing.ForeColor = System.Drawing.Color.White;
-            this.button_reindexing.Location = new System.Drawing.Point(0, 472);
-            this.button_reindexing.Margin = new System.Windows.Forms.Padding(2);
+            this.button_reindexing.Location = new System.Drawing.Point(0, 583);
+            this.button_reindexing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_reindexing.Name = "button_reindexing";
-            this.button_reindexing.Size = new System.Drawing.Size(790, 27);
+            this.button_reindexing.Size = new System.Drawing.Size(1048, 33);
             this.button_reindexing.TabIndex = 3;
             this.button_reindexing.Text = "Переиндексация файлов";
             this.button_reindexing.UseVisualStyleBackColor = false;
@@ -161,19 +161,19 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(731, 10);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(969, 11);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 48);
+            this.button2.Size = new System.Drawing.Size(75, 59);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 525);
+            this.ClientSize = new System.Drawing.Size(1048, 646);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_reindexing);
             this.Controls.Add(this.addButton);
@@ -184,7 +184,7 @@
             this.Controls.Add(this.listFile);
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "SortDoc";
             this.Load += new System.EventHandler(this.Form1_Load);

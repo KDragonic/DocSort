@@ -97,9 +97,6 @@
             // 
             this.comboBox_auther.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_auther.FormattingEnabled = true;
-            this.comboBox_auther.Items.AddRange(new object[] {
-            "Денис Коропов",
-            "Андрей Миша"});
             this.comboBox_auther.Location = new System.Drawing.Point(0, 107);
             this.comboBox_auther.Name = "comboBox_auther";
             this.comboBox_auther.Size = new System.Drawing.Size(343, 33);
@@ -109,10 +106,6 @@
             // 
             this.comboBox_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox_type.FormattingEnabled = true;
-            this.comboBox_type.Items.AddRange(new object[] {
-            "Самостоятельная работа",
-            "Контрольная работа",
-            "Отчёт"});
             this.comboBox_type.Location = new System.Drawing.Point(349, 107);
             this.comboBox_type.Name = "comboBox_type";
             this.comboBox_type.Size = new System.Drawing.Size(343, 33);

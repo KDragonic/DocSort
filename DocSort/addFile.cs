@@ -18,6 +18,14 @@ namespace DocSort
         {
             InitializeComponent();
             textBox_name.Text = name;
+            foreach (var item in Properties.Settings.Default.authers)
+            {
+                comboBox_auther.Items.Add(item);
+            }
+            foreach (var item in Properties.Settings.Default.types)
+            {
+                comboBox_type.Items.Add(item);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

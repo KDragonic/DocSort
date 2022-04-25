@@ -107,6 +107,7 @@ namespace DocSort
                     File.Delete(path);
                 }
             }
+            Reindexing();
         }
 
         private void openButton_Click(object sender, EventArgs e)

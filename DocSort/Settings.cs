@@ -25,13 +25,17 @@ namespace DocSort
         private void button1_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.types.Clear();
+            Properties.Settings.Default.authers.Clear();
             foreach (ListViewItem type in listView_types.Items) Properties.Settings.Default.types.Add(type.Text);
             foreach (ListViewItem auther in listView_authors.Items) Properties.Settings.Default.authers.Add(auther.Text);
             Properties.Settings.Default.Save();
+            Close();
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            listView_types.Items.Clear();
+            listView_authors.Items.Clear();
             foreach (var type in Properties.Settings.Default.types) listView_types.Items.Add(type);
             foreach (var auther in Properties.Settings.Default.authers) listView_authors.Items.Add(auther);
         }
@@ -84,9 +88,9 @@ namespace DocSort
 
         private void button_add_author_Click(object sender, EventArgs e)
         {
-            Adding_an_element form = new Adding_an_element("Добавить пункт ТИП в список");
+            Adding_an_element form = new Adding_an_element("Добавить пункт АВТОРА в список");
             form.ShowDialog();
-            if (form.textInput.Length >= 3) { listView_types.Items.Add(form.textInput); }
+            if (form.textInput.Length >= 3) { listView_authors.Items.Add(form.textInput); }
             form.Dispose();
         }
 

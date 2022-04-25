@@ -16,6 +16,7 @@ namespace DocSort
         public Adding_an_element(string name_text)
         {
             InitializeComponent();
+            label1.Text = name_text;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -31,6 +32,11 @@ namespace DocSort
                 textInput = textBox1.Text;
                 Close();
             }
+        }
+
+        private void Adding_an_element_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
