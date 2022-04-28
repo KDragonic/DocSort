@@ -16,7 +16,7 @@ namespace DocSort
             InitializeComponent();
             startGenColumns();
             loadingSettings();
-            MainFolder.creatMainFolder();
+            MainFolder.CheckMainFolder();
             if (Properties.Settings.Default.pathMainFolder != null) Reindexing();
         }
 
@@ -39,13 +39,6 @@ namespace DocSort
                 listFile.Columns[4].Width = Properties.Settings.Default.ColWidth_5;
                 listFile.Columns[5].Width = Properties.Settings.Default.ColWidth_6;
             }
-
-            openButton.BackColor = Color.FromArgb(50, openButton.BackColor.R, openButton.BackColor.G, openButton.BackColor.B);
-            removeButton.BackColor = Color.FromArgb(50, removeButton.BackColor.R, removeButton.BackColor.G, removeButton.BackColor.B);
-            editButton.BackColor = Color.FromArgb(50, editButton.BackColor.R, editButton.BackColor.G, editButton.BackColor.B);
-
-
-
             endLoadingSetting = true;
         }
 
@@ -137,41 +130,61 @@ namespace DocSort
 
         private void addFiles()
         {
-            OpenFileDialog files = new OpenFileDialog();
+            OpenFileDialog files = new OpenFileDialog
+            {
+                Multiselect = true
+            };
 
             if (files.ShowDialog() == DialogResult.OK)
             {
                 //Get the path of specified file
-                foreach (var item in files.FileNames)
+                foreach (var path in files.FileNames)
                 {
-                    addFile(item);
-                }
-            }
-        }
+                    string name = Path.GetFileNameWithoutExtension(path);
+                    if (name == "") name = "(пусто)";
+                    addFile form = new addFile(name);
+                    form.ShowDialog();
+                    if (form.сlosingСode == "done")
+                    {
+                        Dictionary<string, object> data = new Dictionary<string, object>();
+                        if (form.data["name"] == null) return;
+                        if (form.data["auther"] == null) return;
+                        if (form.data["type"] == null) return;
+                        data["name"] = form.data["name"];
+                        data["auther"] = form.data["auther"];
+                        data["type"] = form.data["type"];
+                        data["extension"] = Path.GetExtension(path);
+                        data["dateCreate"] = File.GetCreationTime(path);
+                        data["dateModified"] = File.GetLastWriteTime(path);
+                        string newPath = Properties.Settings.Default.pathMainFolder + "\\" + data["auther"] + "\\" + data["type"];
 
-        private void addFile(string filePath)
-        {
-            docFiles.Add(new DocFile(filePath, true));
-            reGenListEntrys();
+                        DocFile file = new DocFile(data, newPath, path);
+                        docFiles.Add(file);
+                    }
+                }
+                reGenListEntrys();
+            }
         }
 
         private void listFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var index = listFile.SelectedItems;
-
-            if (index.Count >= 1)
+            var file = listFile.SelectedItems;
+            var buttons = new Button[] { openButton, removeButton, editButton, openInFolderButton, createReportButton };
+            if (file.Count >= 1)
             {
-                openButton.Enabled = removeButton.Enabled = editButton.Enabled = true;
-                openButton.BackColor = Color.FromArgb(255, openButton.BackColor.R, openButton.BackColor.G, openButton.BackColor.B);
-                removeButton.BackColor = Color.FromArgb(255, removeButton.BackColor.R, removeButton.BackColor.G, removeButton.BackColor.B);
-                editButton.BackColor = Color.FromArgb(255, editButton.BackColor.R, editButton.BackColor.G, editButton.BackColor.B);
+                foreach (var button in buttons)
+                {
+                    button.Enabled = true;
+                    button.BackColor = Color.FromArgb(255, button.BackColor.R, button.BackColor.G, button.BackColor.B);
+                }
             }
             else
             {
-                openButton.Enabled = removeButton.Enabled = editButton.Enabled = false;
-                openButton.BackColor = Color.FromArgb(50, openButton.BackColor.R, openButton.BackColor.G, openButton.BackColor.B);
-                removeButton.BackColor = Color.FromArgb(50, removeButton.BackColor.R, removeButton.BackColor.G, removeButton.BackColor.B);
-                editButton.BackColor = Color.FromArgb(50, editButton.BackColor.R, editButton.BackColor.G, editButton.BackColor.B);
+                foreach (var button in buttons)
+                {
+                    button.Enabled = false;
+                    button.BackColor = Color.FromArgb(50, button.BackColor.R, button.BackColor.G, button.BackColor.B);
+                }
             }
         }
 
@@ -183,11 +196,11 @@ namespace DocSort
         private void Reindexing()
         {
             docFiles.Clear();
-            if (Properties.Settings.Default.pathMainFolder.Length <= 3) MainFolder.setPathMainFolder();
+            MainFolder.CheckMainFolder();
             string[] FilesPath = Directory.GetFiles(Properties.Settings.Default.pathMainFolder, "*.*", SearchOption.AllDirectories);
             foreach (var filePath in FilesPath)
             {
-                docFiles.Add(new DocFile(filePath, false));
+                docFiles.Add(new DocFile(filePath));
             }
             reGenListEntrys();
         }
@@ -204,6 +217,16 @@ namespace DocSort
         }
 
         private void inputSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openInFolderButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createReportButton_Click(object sender, EventArgs e)
         {
             
         }

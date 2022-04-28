@@ -41,16 +41,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.theme = new System.Windows.Forms.GroupBox();
             this.openingMethod = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label_additional_decorations = new System.Windows.Forms.Label();
-            this.label_advanced_mode = new System.Windows.Forms.Label();
             this.theme.SuspendLayout();
             this.openingMethod.SuspendLayout();
             this.SuspendLayout();
@@ -212,10 +208,10 @@
             this.radioButton1.Location = new System.Drawing.Point(23, 25);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(144, 24);
+            this.radioButton1.Size = new System.Drawing.Size(102, 24);
             this.radioButton1.TabIndex = 10;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Стандартная";
+            this.radioButton1.Text = "Светлая";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
@@ -231,32 +227,6 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Тёмная";
             this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton3.Location = new System.Drawing.Point(23, 151);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(234, 24);
-            this.radioButton3.TabIndex = 13;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Высокая контрастность";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton4.Location = new System.Drawing.Point(23, 110);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(82, 24);
-            this.radioButton4.TabIndex = 12;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Белая";
-            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
@@ -288,14 +258,12 @@
             // 
             this.theme.Controls.Add(this.radioButton1);
             this.theme.Controls.Add(this.radioButton2);
-            this.theme.Controls.Add(this.radioButton4);
-            this.theme.Controls.Add(this.radioButton3);
             this.theme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.theme.Location = new System.Drawing.Point(452, 79);
             this.theme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.theme.Name = "theme";
             this.theme.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.theme.Size = new System.Drawing.Size(263, 185);
+            this.theme.Size = new System.Drawing.Size(263, 102);
             this.theme.TabIndex = 16;
             this.theme.TabStop = false;
             this.theme.Text = "Темы";
@@ -305,7 +273,7 @@
             this.openingMethod.Controls.Add(this.radioButton6);
             this.openingMethod.Controls.Add(this.radioButton5);
             this.openingMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.openingMethod.Location = new System.Drawing.Point(452, 272);
+            this.openingMethod.Location = new System.Drawing.Point(452, 192);
             this.openingMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.openingMethod.Name = "openingMethod";
             this.openingMethod.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -321,10 +289,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(456, 439);
+            this.button1.Location = new System.Drawing.Point(456, 387);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(259, 39);
+            this.button1.Size = new System.Drawing.Size(259, 65);
             this.button1.TabIndex = 18;
             this.button1.Text = "Сбросить настройки";
             this.button1.UseVisualStyleBackColor = false;
@@ -336,41 +304,19 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(456, 485);
+            this.button6.Location = new System.Drawing.Point(456, 459);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(259, 39);
+            this.button6.Size = new System.Drawing.Size(259, 65);
             this.button6.TabIndex = 19;
             this.button6.Text = "Сбросить ВСЕ настройки";
             this.button6.UseVisualStyleBackColor = false;
-            // 
-            // label_additional_decorations
-            // 
-            this.label_additional_decorations.AutoSize = true;
-            this.label_additional_decorations.Location = new System.Drawing.Point(461, 382);
-            this.label_additional_decorations.Name = "label_additional_decorations";
-            this.label_additional_decorations.Size = new System.Drawing.Size(193, 16);
-            this.label_additional_decorations.TabIndex = 22;
-            this.label_additional_decorations.Text = "Дополнительные декорации";
-            this.label_additional_decorations.Click += new System.EventHandler(this.label_additional_decorations_Click);
-            // 
-            // label_advanced_mode
-            // 
-            this.label_advanced_mode.AutoSize = true;
-            this.label_advanced_mode.Location = new System.Drawing.Point(461, 410);
-            this.label_advanced_mode.Name = "label_advanced_mode";
-            this.label_advanced_mode.Size = new System.Drawing.Size(127, 16);
-            this.label_advanced_mode.TabIndex = 22;
-            this.label_advanced_mode.Text = "Раширеный режим";
-            this.label_advanced_mode.Click += new System.EventHandler(this.label_advanced_mode_Click);
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 596);
-            this.Controls.Add(this.label_advanced_mode);
-            this.Controls.Add(this.label_additional_decorations);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.openingMethod);
@@ -416,15 +362,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.GroupBox theme;
         private System.Windows.Forms.GroupBox openingMethod;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label_additional_decorations;
-        private System.Windows.Forms.Label label_advanced_mode;
     }
 }

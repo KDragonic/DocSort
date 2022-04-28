@@ -12,8 +12,8 @@ namespace DocSort
 {
     public partial class addFile : Form
     {
+        internal string сlosingСode = "forced";
         internal Dictionary<string, string> data = new Dictionary<string, string>();
-
         public addFile(string name)
         {
             InitializeComponent();
@@ -37,12 +37,14 @@ namespace DocSort
                 data.Add("name", textBox_name.Text);
                 data.Add("type", comboBox_type.Text);
                 data.Add("auther", comboBox_auther.Text);
+                сlosingСode = "done";
                 this.Close();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            сlosingСode = "cancel";
             Close();
         }
     }

@@ -16,39 +16,31 @@ namespace DocSort
         public DateTime dateCreate;
         public DateTime dateModified;
 
-        public DocFile(string path, bool isCopy)
+        public DocFile(Dictionary<string, object> data, string pathFolder, string oldPath)
+        {
+            this.name = (string)data["name"];
+            this.auther = (string)data["auther"];
+            this.type = (string)data["type"];
+            this.extension = (string)data["extension"];
+            this.dateCreate = (DateTime)data["dateCreate"];
+            this.dateModified = (DateTime)data["dateModified"];
+
+            if (!isFolder(pathFolder)) creatFolders(pathFolder);
+            copyFile(Path.Combine(pathFolder, (string)data["name"] + (string)data["extension"]), oldPath);
+        }
+
+        public DocFile(string path)
         {
             string name = Path.GetFileNameWithoutExtension(path);
             if (name == "") name = "(пусто)";
             string extension = Path.GetExtension(path);
-            if (isCopy)
-            {
-                addFile form = new addFile(name);
-                form.ShowDialog();
-                if (form.data["name"] == null) return;
-                this.name = form.data["name"];
-                this.auther = form.data["auther"];
-                this.type = form.data["type"];
-                this.extension = extension;
-                this.dateCreate = File.GetCreationTime(path);
-                this.dateModified = File.GetLastWriteTime(path);
-
-                string pathFolder = Properties.Settings.Default.pathMainFolder + "/" + this.auther + "/" + this.type;
-
-                if (!isFolder(pathFolder)) creatFolders(pathFolder);
-                copyFile(Path.Combine(pathFolder, name), path);
-            }
-            else
-            {
-                var folderNames = getFolderNames(path);
-
-                this.name = name;
-                this.auther = folderNames["auther"];
-                this.type = folderNames["type"];
-                this.extension = extension;
-                this.dateCreate = File.GetCreationTime(path);
-                this.dateModified = File.GetLastWriteTime(path);
-            }
+            var folderNames = getFolderNames(path);
+            this.name = name;
+            this.auther = folderNames["auther"];
+            this.type = folderNames["type"];
+            this.extension = extension;
+            this.dateCreate = File.GetCreationTime(path);
+            this.dateModified = File.GetLastWriteTime(path);
         }
 
         private Dictionary<string, string> getFolderNames(string path)

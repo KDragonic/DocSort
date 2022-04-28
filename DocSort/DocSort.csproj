@@ -78,6 +78,7 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings1.cs" />
     <EmbeddedResource Include="addFile.resx">
       <DependentUpon>addFile.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +116,9 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="icon_DocSort.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

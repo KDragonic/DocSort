@@ -37,11 +37,11 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(170)))), ((int)(((byte)(90)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(147, 88);
+            this.button1.Location = new System.Drawing.Point(207, 99);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 44);
+            this.button1.Size = new System.Drawing.Size(192, 44);
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = false;
@@ -50,13 +50,13 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(2, 88);
+            this.button2.Location = new System.Drawing.Point(6, 99);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 44);
+            this.button2.Size = new System.Drawing.Size(192, 44);
             this.button2.TabIndex = 0;
-            this.button2.Text = "Закрыть";
+            this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -66,7 +66,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 43);
+            this.label1.Size = new System.Drawing.Size(406, 63);
             this.label1.TabIndex = 1;
             this.label1.Text = "...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,17 +75,16 @@
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(0, 43);
+            this.textBox1.Location = new System.Drawing.Point(0, 63);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 30);
+            this.textBox1.Size = new System.Drawing.Size(406, 30);
             this.textBox1.TabIndex = 2;
             // 
             // Adding_an_element
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 166);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(406, 151);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);

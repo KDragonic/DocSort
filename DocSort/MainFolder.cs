@@ -10,52 +10,33 @@ namespace DocSort
 {
     static class MainFolder
     {
-        public static bool IsMainFolder()
+        public static void CheckMainFolder()
         {
-            if (Properties.Settings.Default.pathMainFolder == null || Properties.Settings.Default.pathMainFolder == "")
+            if (Properties.Settings.Default.pathMainFolder != null
+                && Properties.Settings.Default.pathMainFolder != ""
+                && Properties.Settings.Default.pathMainFolder.Length >= 4)
             {
-                return false;
+                if (!Directory.Exists(Properties.Settings.Default.pathMainFolder))
+                {
+                    setPathMainFolder();
+                }
             }
-
-            if (Directory.Exists(Properties.Settings.Default.pathMainFolder))
-            {
-                return true;
-            }
-            else return false;
+            else setPathMainFolder();
         }
 
         public static void setPathMainFolder()
         {
-            if (Properties.Settings.Default.pathMainFolder == null || Properties.Settings.Default.pathMainFolder == "")
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.Description = "Выберите папку куда будут копироватся файлы";
+            while (true)
             {
-                FolderBrowserDialog dialog = new FolderBrowserDialog();
-                dialog.Description = "Выберите папку куда будут копироватся файлы";
-                while (true)
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (dialog.ShowDialog() == DialogResult.OK)
-                    {
-                        Properties.Settings.Default.pathMainFolder = dialog.SelectedPath;
-                        Properties.Settings.Default.Save();
-                        break;
-                    }
+                    Properties.Settings.Default.pathMainFolder = dialog.SelectedPath;
+                    Properties.Settings.Default.Save();
+                    break;
                 }
             }
-        }
-
-        public static void creatMainFolder()
-        {
-            try
-            {
-                if (IsMainFolder())
-                {
-                    Directory.CreateDirectory(Properties.Settings.Default.pathMainFolder);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
         }
     }
 }

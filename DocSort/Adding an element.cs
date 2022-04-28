@@ -13,6 +13,7 @@ namespace DocSort
     public partial class Adding_an_element : Form
     {
         internal string textInput;
+        internal string сlosingСode = "forced";
         public Adding_an_element(string name_text)
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace DocSort
 
         private void button2_Click(object sender, EventArgs e)
         {
+            сlosingСode = "cancel";
             Close();
         }
 
@@ -30,6 +32,7 @@ namespace DocSort
             else
             {
                 textInput = textBox1.Text;
+                сlosingСode = "done";
                 Close();
             }
         }
