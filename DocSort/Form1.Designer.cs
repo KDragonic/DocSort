@@ -53,7 +53,7 @@
             this.listFile.Location = new System.Drawing.Point(0, 76);
             this.listFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listFile.Name = "listFile";
-            this.listFile.Size = new System.Drawing.Size(1739, 504);
+            this.listFile.Size = new System.Drawing.Size(1533, 504);
             this.listFile.TabIndex = 0;
             this.listFile.UseCompatibleStateImageBehavior = false;
             this.listFile.View = System.Windows.Forms.View.Details;
@@ -134,7 +134,7 @@
             this.inputSearch.Location = new System.Drawing.Point(0, 616);
             this.inputSearch.Margin = new System.Windows.Forms.Padding(0);
             this.inputSearch.Name = "inputSearch";
-            this.inputSearch.Size = new System.Drawing.Size(1740, 30);
+            this.inputSearch.Size = new System.Drawing.Size(1534, 30);
             this.inputSearch.TabIndex = 3;
             this.inputSearch.Text = "Поиск";
             this.inputSearch.TextChanged += new System.EventHandler(this.inputSearch_TextChanged);
@@ -150,7 +150,7 @@
             this.button_reindexing.Location = new System.Drawing.Point(0, 583);
             this.button_reindexing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_reindexing.Name = "button_reindexing";
-            this.button_reindexing.Size = new System.Drawing.Size(1740, 33);
+            this.button_reindexing.Size = new System.Drawing.Size(1534, 33);
             this.button_reindexing.TabIndex = 3;
             this.button_reindexing.Text = "Переиндексация файлов";
             this.button_reindexing.UseVisualStyleBackColor = false;
@@ -163,7 +163,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(1653, 9);
+            this.button2.Location = new System.Drawing.Point(1451, 9);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 59);
@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1740, 646);
+            this.ClientSize = new System.Drawing.Size(1534, 646);
             this.Controls.Add(this.createReportButton);
             this.Controls.Add(this.openInFolderButton);
             this.Controls.Add(this.button2);

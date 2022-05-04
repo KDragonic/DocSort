@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -31,14 +32,9 @@ namespace DocSort
             foreach (var auther in Properties.Settings.Default.authers) listView_authors.Items.Add(auther);
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_add_types_Click(object sender, EventArgs e)
         {
-            Adding_an_element form = new Adding_an_element("Добавить пункт ТИП в список");
+            Adding_an_element form = new Adding_an_element("Добавить ТИП в список");
             form.ShowDialog();
             if (form.сlosingСode == "done")
             {
@@ -69,7 +65,7 @@ namespace DocSort
 
         private void button_add_author_Click(object sender, EventArgs e)
         {
-            Adding_an_element form = new Adding_an_element("Добавить пункт АВТОРА в список");
+            Adding_an_element form = new Adding_an_element("Добавить АВТОРА в список");
             form.ShowDialog();
             if (form.сlosingСode == "done")
             {
