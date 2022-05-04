@@ -223,7 +223,23 @@ namespace DocSort
 
         private void openInFolderButton_Click(object sender, EventArgs e)
         {
-
+            var items = listFile.SelectedItems;
+            List<string> folders = new List<string>();
+            foreach (ListViewItem listViewItem in items)
+            {
+                string path = Properties.Settings.Default.pathMainFolder + "\\" + listViewItem.SubItems[2].Text + "\\" + listViewItem.SubItems[3].Text;
+                if (!folders.Contains(path)) folders.Add(path);
+            }              
+            if (folders.Count > 4)
+            {
+                DialogResult resualt = MessageBox.Show($"Вы уверены что хотите отрыть {items.Count} файлов?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resualt.ToString() != "Yes") return;
+            }
+            foreach (var folder in folders)
+            {
+                Console.WriteLine(folder);
+                Process.Start("explorer.exe", folder);
+            }
         }
 
         private void createReportButton_Click(object sender, EventArgs e)

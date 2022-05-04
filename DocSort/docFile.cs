@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DocSort
 {
@@ -57,7 +58,12 @@ namespace DocSort
 
         private void creatFolders(string pathFolder) => Directory.CreateDirectory(pathFolder);
         private bool isFolder(string pathFolder) => Directory.Exists(pathFolder);
-        private void copyFile(string newPath, string oldPath) => File.Copy(oldPath, newPath);
+        private void copyFile(string newPath, string oldPath)
+        {
+            if (File.Exists(newPath)) MessageBox.Show($"Файл по пути {newPath} уже есть, файл не добавлен выберите другое имя", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else File.Copy(oldPath, newPath);
+        }
+
         protected void removeFile(string path) => File.Delete(path);
     }
 }
