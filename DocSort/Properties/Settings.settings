@@ -56,5 +56,8 @@
     <Setting Name="advanced_mode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Standard</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
