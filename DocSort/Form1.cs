@@ -91,6 +91,11 @@ namespace DocSort
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            removeFiles();
+        }
+
+        private void removeFiles()
+        {
             var items = listFile.SelectedItems;
             DialogResult resualt = MessageBox.Show($"Вы уверены что хотите УДАЛИТЬ {items.Count} файлов?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resualt.ToString() == "Yes")
@@ -105,6 +110,11 @@ namespace DocSort
         }
 
         private void openButton_Click(object sender, EventArgs e)
+        {
+            openFiles();
+        }
+
+        private void openFiles()
         {
             var items = listFile.SelectedItems;
             if (items.Count > 6)
@@ -219,6 +229,11 @@ namespace DocSort
 
         private void openInFolderButton_Click(object sender, EventArgs e)
         {
+            openFileInFolder();
+        }
+
+        private void openFileInFolder()
+        {
             var items = listFile.SelectedItems;
             List<string> folders = new List<string>();
             foreach (ListViewItem listViewItem in items)
@@ -242,29 +257,88 @@ namespace DocSort
         {
             Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             Document wordDoc = wordApp.Documents.Add();
+
+            //Добавляем параграф в конец документа
+            var Paragraph = wordApp.ActiveDocument.Paragraphs.Add();
+            //Получаем диапазон
+            var tableRange = Paragraph.Range;
+
             if (isAll)
+            {
+                //Добавляем таблицу
+                wordApp.ActiveDocument.Tables.Add(tableRange, docFiles.Count + 1, 5);
+
+                var table = wordApp.ActiveDocument.Tables[wordApp.ActiveDocument.Tables.Count];
+                table.set_Style("Сетка таблицы");
+                table.ApplyStyleHeadingRows = true;
+                table.ApplyStyleLastRow = false;
+                table.ApplyStyleFirstColumn = true;
+                table.ApplyStyleLastColumn = false;
+                table.ApplyStyleRowBands = true;
+                table.ApplyStyleColumnBands = false;
+
+
+                table.Cell(1, 1).Range.Text = "Название";
+                table.Cell(1, 2).Range.Text = "Автор";
+                table.Cell(1, 3).Range.Text = "Тип";
+                table.Cell(1, 4).Range.Text = "Время создания";
+                table.Cell(1, 5).Range.Text = "Время изменения";
+
+                table.Cell(1, 1).Range.Font.Bold = 1;
+                table.Cell(1, 2).Range.Font.Bold = 1;
+                table.Cell(1, 3).Range.Font.Bold = 1;
+                table.Cell(1, 4).Range.Font.Bold = 1;
+                table.Cell(1, 5).Range.Font.Bold = 1;
+
                 for (int i = 0; i < docFiles.Count; i++)
                 {
                     var item = docFiles[i];
-                    Paragraph par = wordDoc.Paragraphs.Add();
-                    par.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                    par.Range.Font.Size = 12;
-                    par.Range.Font.Name = "Times New Roman";
-                    par.Range.Text += $"[{item.type}] {item.name} был создан {item.auther} в {item.dateCreate}\r\n";
+                    table.Cell(i + 2, 1).Range.Text =  item.name;
+                    table.Cell(i + 2, 2).Range.Text =  item.auther;
+                    table.Cell(i + 2, 3).Range.Text = item.type;
+                    table.Cell(i + 2, 4).Range.Text =  item.dateCreate.ToString();
+                    table.Cell(i + 2, 5).Range.Text = item.dateModified.ToString();
                 }
+            }
             else
             {
                 var items = listFile.Items;
+
+                wordApp.ActiveDocument.Tables.Add(tableRange, items.Count + 1, 5);
+
+                var table = wordApp.ActiveDocument.Tables[wordApp.ActiveDocument.Tables.Count];
+                table.set_Style("Сетка таблицы");
+                table.ApplyStyleHeadingRows = true;
+                table.ApplyStyleLastRow = false;
+                table.ApplyStyleFirstColumn = true;
+                table.ApplyStyleLastColumn = false;
+                table.ApplyStyleRowBands = true;
+                table.ApplyStyleColumnBands = false;
+
+
+                table.Cell(1, 1).Range.Text = "Название";
+                table.Cell(1, 2).Range.Text = "Автор";
+                table.Cell(1, 3).Range.Text = "Тип";
+                table.Cell(1, 4).Range.Text = "Время создания";
+                table.Cell(1, 5).Range.Text = "Время изменения";
+
+                table.Cell(1, 1).Range.Font.Bold = 1;
+                table.Cell(1, 2).Range.Font.Bold = 1;
+                table.Cell(1, 3).Range.Font.Bold = 1;
+                table.Cell(1, 4).Range.Font.Bold = 1;
+                table.Cell(1, 5).Range.Font.Bold = 1;
+
                 for (int i = 0; i < items.Count; i++)
                 {
                     var item = items[i];
-                    Paragraph par = wordDoc.Paragraphs.Add();
-                    par.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                    par.Range.Font.Size = 12;
-                    par.Range.Font.Name = "Times New Roman";
-                    par.Range.Text += $"[{item.SubItems[3].Text}] {item.SubItems[0].Text} был создан {item.SubItems[2].Text} в {item.SubItems[4].Text}\r\n";
+                    table.Cell(i + 2, 1).Range.Text = item.SubItems[0].Text;
+                    table.Cell(i + 2, 2).Range.Text = item.SubItems[2].Text;
+                    table.Cell(i + 2, 3).Range.Text = item.SubItems[3].Text;
+                    table.Cell(i + 2, 4).Range.Text = item.SubItems[4].Text;
+                    table.Cell(i + 2, 5).Range.Text = item.SubItems[5].Text;
                 }
             }
+            //"Приукрашиваем" таблицу, иначе по-дефолту она будет без линий
             wordApp.Visible = true;
         }
 
@@ -287,6 +361,34 @@ namespace DocSort
         {
             Filter filter = new Filter();
             filter.ShowDialog();
+            Dictionary<string, object> param = filter.param;
+            filter.Dispose();
+            var list = docFiles;
+            if (param.ContainsKey("Автор"))
+            {
+                list = list.FindAll(file => file.auther.IndexOf((string)param["Автор"]) > -1);
+            }
+
+            if (param.ContainsKey("Тип"))
+            {
+                list = list.FindAll(file => file.type.IndexOf((string)param["Тип"]) > -1);
+            }
+
+            if (param.ContainsKey("Дата"))
+            {
+                DateTime[] buff = (DateTime[])param["Дата"];
+                DateTime dateStart = buff[0];
+                DateTime dateEnd = buff[1];
+
+                list = list.FindAll(file => file.dateCreate >= dateStart && file.dateCreate < dateEnd);
+            }
+
+
+            listFile.Items.Clear();
+            foreach (var item in list)
+            {
+                addEntry(item.name, item.extension, item.auther, item.type, item.dateCreate.ToString(), item.dateModified.ToString());
+            }
 
         }
 
@@ -298,6 +400,60 @@ namespace DocSort
         private void ReportOutputButton_Click(object sender, EventArgs e)
         {
             createReport(false);
+        }
+
+        private void переиндексацияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reindexing();
+        }
+
+        private void выделитьВсёToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listFile.Items)
+            {
+                item.Selected = true;
+            } 
+        }
+
+        private void убратьВыделенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listFile.Items)
+            {
+                item.Selected = false;
+            }
+        }
+
+        private void инвертироватьВыделенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listFile.Items)
+            {
+                item.Selected = !item.Selected;
+            }
+        }
+
+        private void убратьФилтрациюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reGenListEntrys();
+        }
+
+        private void добавитьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addFiles();
+        }
+
+        private void удалитьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            removeFiles();
+        }
+
+        private void открытьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFiles();
+        }
+
+        private void открытьФайлВПапкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileInFolder();
         }
     }
 }

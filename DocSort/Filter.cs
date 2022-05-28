@@ -12,10 +12,20 @@ namespace DocSort
 {
     public partial class Filter : Form
     {
-        internal object[] param = null;
+        internal Dictionary<string, object> param = new Dictionary<string, object>();
         public Filter()
         {
             InitializeComponent();
+            comboBox_auther.Items.Clear();
+            comboBox_type.Items.Clear();
+            foreach (var item in Properties.Settings.Default.authers)
+            {
+                comboBox_auther.Items.Add(item);
+            }
+            foreach (var item in Properties.Settings.Default.types)
+            {
+                comboBox_type.Items.Add(item);
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -41,11 +51,11 @@ namespace DocSort
             CheckBox checkBox = (CheckBox)sender;
             if (checkBox.Checked)
             {
-                checkBox.Enabled = true;
+                comboBox_type.Enabled = true;
             }
             else
             {
-                checkBox.Enabled = false;
+                comboBox_type.Enabled = false;
             }
         }
 
@@ -67,6 +77,14 @@ namespace DocSort
                 dateTimePicker1.Enabled = false;
                 dateTimePicker2.Enabled = false;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) param.Add("Автор", comboBox_auther.Text);
+            if (checkBox2.Checked) param.Add("Тип", comboBox_type.Text);
+            if (checkBox3.Checked) param.Add("Дата", new DateTime[] { dateTimePicker1.Value, dateTimePicker2.Value });
+            Close();
         }
     }
 }

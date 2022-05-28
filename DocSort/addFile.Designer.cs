@@ -36,8 +36,8 @@
             this.comboBox_auther = new System.Windows.Forms.ComboBox();
             this.comboBox_type = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button_add_auther = new System.Windows.Forms.Button();
             this.button_add_type = new System.Windows.Forms.Button();
+            this.button_add_auther = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox_name
@@ -135,22 +135,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button_add_auther
-            // 
-            this.button_add_auther.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(170)))), ((int)(((byte)(90)))));
-            this.button_add_auther.Enabled = false;
-            this.button_add_auther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_add_auther.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_add_auther.ForeColor = System.Drawing.Color.White;
-            this.button_add_auther.Location = new System.Drawing.Point(0, 143);
-            this.button_add_auther.Margin = new System.Windows.Forms.Padding(0);
-            this.button_add_auther.Name = "button_add_auther";
-            this.button_add_auther.Size = new System.Drawing.Size(343, 33);
-            this.button_add_auther.TabIndex = 8;
-            this.button_add_auther.Text = "Добавить автора";
-            this.button_add_auther.UseVisualStyleBackColor = false;
-            this.button_add_auther.Click += new System.EventHandler(this.button_add_auther_Click);
-            // 
             // button_add_type
             // 
             this.button_add_type.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(170)))), ((int)(((byte)(90)))));
@@ -166,6 +150,22 @@
             this.button_add_type.Text = "Добавить тип";
             this.button_add_type.UseVisualStyleBackColor = false;
             this.button_add_type.Click += new System.EventHandler(this.button_add_type_Click);
+            // 
+            // button_add_auther
+            // 
+            this.button_add_auther.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(170)))), ((int)(((byte)(90)))));
+            this.button_add_auther.Enabled = false;
+            this.button_add_auther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_add_auther.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_add_auther.ForeColor = System.Drawing.Color.White;
+            this.button_add_auther.Location = new System.Drawing.Point(0, 143);
+            this.button_add_auther.Margin = new System.Windows.Forms.Padding(0);
+            this.button_add_auther.Name = "button_add_auther";
+            this.button_add_auther.Size = new System.Drawing.Size(343, 33);
+            this.button_add_auther.TabIndex = 8;
+            this.button_add_auther.Text = "Добавить автора";
+            this.button_add_auther.UseVisualStyleBackColor = false;
+            this.button_add_auther.Click += new System.EventHandler(this.button_add_auther_Click);
             // 
             // addFile
             // 
@@ -200,7 +200,7 @@
         private System.Windows.Forms.ComboBox comboBox_auther;
         private System.Windows.Forms.ComboBox comboBox_type;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button_add_auther;
         private System.Windows.Forms.Button button_add_type;
+        private System.Windows.Forms.Button button_add_auther;
     }
 }

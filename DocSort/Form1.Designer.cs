@@ -41,6 +41,19 @@
             this.input_FastSearch = new System.Windows.Forms.TextBox();
             this.button_ExpandedOutput = new System.Windows.Forms.Button();
             this.ReportOutputButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.таблицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.файлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.переиндексацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выделитьВсёToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.убратьВыделенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инвертироватьВыделенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.убратьФилтрациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьФайлВПапкеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listFile
@@ -52,10 +65,10 @@
             this.listFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listFile.FullRowSelect = true;
             this.listFile.HideSelection = false;
-            this.listFile.Location = new System.Drawing.Point(0, 92);
+            this.listFile.Location = new System.Drawing.Point(0, 114);
             this.listFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listFile.Name = "listFile";
-            this.listFile.Size = new System.Drawing.Size(1612, 513);
+            this.listFile.Size = new System.Drawing.Size(1612, 491);
             this.listFile.TabIndex = 0;
             this.listFile.UseCompatibleStateImageBehavior = false;
             this.listFile.View = System.Windows.Forms.View.Details;
@@ -69,7 +82,7 @@
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(5, 9);
+            this.addButton.Location = new System.Drawing.Point(5, 31);
             this.addButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(235, 79);
@@ -86,7 +99,7 @@
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(246, 9);
+            this.editButton.Location = new System.Drawing.Point(246, 31);
             this.editButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(235, 79);
@@ -103,7 +116,7 @@
             this.openButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.openButton.ForeColor = System.Drawing.Color.White;
-            this.openButton.Location = new System.Drawing.Point(487, 9);
+            this.openButton.Location = new System.Drawing.Point(487, 31);
             this.openButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(235, 79);
@@ -120,7 +133,7 @@
             this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.removeButton.ForeColor = System.Drawing.Color.White;
-            this.removeButton.Location = new System.Drawing.Point(969, 9);
+            this.removeButton.Location = new System.Drawing.Point(969, 31);
             this.removeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(235, 79);
@@ -153,7 +166,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(1530, 9);
+            this.button2.Location = new System.Drawing.Point(1530, 31);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(71, 79);
@@ -169,7 +182,7 @@
             this.openInFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openInFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.openInFolderButton.ForeColor = System.Drawing.Color.White;
-            this.openInFolderButton.Location = new System.Drawing.Point(728, 9);
+            this.openInFolderButton.Location = new System.Drawing.Point(728, 31);
             this.openInFolderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.openInFolderButton.Name = "openInFolderButton";
             this.openInFolderButton.Size = new System.Drawing.Size(235, 79);
@@ -185,7 +198,7 @@
             this.ReportAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReportAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReportAllButton.ForeColor = System.Drawing.Color.White;
-            this.ReportAllButton.Location = new System.Drawing.Point(1210, 11);
+            this.ReportAllButton.Location = new System.Drawing.Point(1210, 33);
             this.ReportAllButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReportAllButton.Name = "ReportAllButton";
             this.ReportAllButton.Size = new System.Drawing.Size(314, 36);
@@ -230,7 +243,7 @@
             this.ReportOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReportOutputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReportOutputButton.ForeColor = System.Drawing.Color.White;
-            this.ReportOutputButton.Location = new System.Drawing.Point(1210, 52);
+            this.ReportOutputButton.Location = new System.Drawing.Point(1210, 74);
             this.ReportOutputButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReportOutputButton.Name = "ReportOutputButton";
             this.ReportOutputButton.Size = new System.Drawing.Size(314, 36);
@@ -239,12 +252,121 @@
             this.ReportOutputButton.UseVisualStyleBackColor = false;
             this.ReportOutputButton.Click += new System.EventHandler(this.ReportOutputButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.таблицаToolStripMenuItem,
+            this.файлыToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1611, 28);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // таблицаToolStripMenuItem
+            // 
+            this.таблицаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.переиндексацияToolStripMenuItem,
+            this.выделитьВсёToolStripMenuItem,
+            this.убратьВыделенияToolStripMenuItem,
+            this.инвертироватьВыделенияToolStripMenuItem,
+            this.убратьФилтрациюToolStripMenuItem});
+            this.таблицаToolStripMenuItem.Name = "таблицаToolStripMenuItem";
+            this.таблицаToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.таблицаToolStripMenuItem.Text = "Таблица";
+            // 
+            // файлыToolStripMenuItem
+            // 
+            this.файлыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьФайлToolStripMenuItem,
+            this.удалитьФайлToolStripMenuItem,
+            this.открытьФайлToolStripMenuItem,
+            this.открытьФайлВПапкеToolStripMenuItem});
+            this.файлыToolStripMenuItem.Name = "файлыToolStripMenuItem";
+            this.файлыToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.файлыToolStripMenuItem.Text = "Файлы";
+            // 
+            // переиндексацияToolStripMenuItem
+            // 
+            this.переиндексацияToolStripMenuItem.Name = "переиндексацияToolStripMenuItem";
+            this.переиндексацияToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.переиндексацияToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
+            this.переиндексацияToolStripMenuItem.Text = "Переиндексация";
+            this.переиндексацияToolStripMenuItem.Click += new System.EventHandler(this.переиндексацияToolStripMenuItem_Click);
+            // 
+            // выделитьВсёToolStripMenuItem
+            // 
+            this.выделитьВсёToolStripMenuItem.Name = "выделитьВсёToolStripMenuItem";
+            this.выделитьВсёToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.выделитьВсёToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
+            this.выделитьВсёToolStripMenuItem.Text = "Выделить всё";
+            this.выделитьВсёToolStripMenuItem.Click += new System.EventHandler(this.выделитьВсёToolStripMenuItem_Click);
+            // 
+            // убратьВыделенияToolStripMenuItem
+            // 
+            this.убратьВыделенияToolStripMenuItem.Name = "убратьВыделенияToolStripMenuItem";
+            this.убратьВыделенияToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.убратьВыделенияToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
+            this.убратьВыделенияToolStripMenuItem.Text = "Убрать выделения";
+            this.убратьВыделенияToolStripMenuItem.Click += new System.EventHandler(this.убратьВыделенияToolStripMenuItem_Click);
+            // 
+            // инвертироватьВыделенияToolStripMenuItem
+            // 
+            this.инвертироватьВыделенияToolStripMenuItem.Name = "инвертироватьВыделенияToolStripMenuItem";
+            this.инвертироватьВыделенияToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.инвертироватьВыделенияToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
+            this.инвертироватьВыделенияToolStripMenuItem.Text = "Инвертировать выделения";
+            this.инвертироватьВыделенияToolStripMenuItem.Click += new System.EventHandler(this.инвертироватьВыделенияToolStripMenuItem_Click);
+            // 
+            // убратьФилтрациюToolStripMenuItem
+            // 
+            this.убратьФилтрациюToolStripMenuItem.Name = "убратьФилтрациюToolStripMenuItem";
+            this.убратьФилтрациюToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.убратьФилтрациюToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
+            this.убратьФилтрациюToolStripMenuItem.Text = "Убрать филтрацию";
+            this.убратьФилтрациюToolStripMenuItem.Click += new System.EventHandler(this.убратьФилтрациюToolStripMenuItem_Click);
+            // 
+            // добавитьФайлToolStripMenuItem
+            // 
+            this.добавитьФайлToolStripMenuItem.Name = "добавитьФайлToolStripMenuItem";
+            this.добавитьФайлToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.добавитьФайлToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.добавитьФайлToolStripMenuItem.Text = "Добавить файл";
+            this.добавитьФайлToolStripMenuItem.Click += new System.EventHandler(this.добавитьФайлToolStripMenuItem_Click);
+            // 
+            // удалитьФайлToolStripMenuItem
+            // 
+            this.удалитьФайлToolStripMenuItem.Name = "удалитьФайлToolStripMenuItem";
+            this.удалитьФайлToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.удалитьФайлToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.удалитьФайлToolStripMenuItem.Text = "Удалить файл";
+            this.удалитьФайлToolStripMenuItem.Click += new System.EventHandler(this.удалитьФайлToolStripMenuItem_Click);
+            // 
+            // открытьФайлToolStripMenuItem
+            // 
+            this.открытьФайлToolStripMenuItem.Name = "открытьФайлToolStripMenuItem";
+            this.открытьФайлToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
+            this.открытьФайлToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.открытьФайлToolStripMenuItem.Text = "Открыть файл";
+            this.открытьФайлToolStripMenuItem.Click += new System.EventHandler(this.открытьФайлToolStripMenuItem_Click);
+            // 
+            // открытьФайлВПапкеToolStripMenuItem
+            // 
+            this.открытьФайлВПапкеToolStripMenuItem.Name = "открытьФайлВПапкеToolStripMenuItem";
+            this.открытьФайлВПапкеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.O)));
+            this.открытьФайлВПапкеToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
+            this.открытьФайлВПапкеToolStripMenuItem.Text = "Открыть файл в папке";
+            this.открытьФайлВПапкеToolStripMenuItem.Click += new System.EventHandler(this.открытьФайлВПапкеToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1611, 672);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button_ExpandedOutput);
             this.Controls.Add(this.input_FastSearch);
             this.Controls.Add(this.ReportOutputButton);
@@ -259,11 +381,14 @@
             this.Controls.Add(this.listFile);
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "SortDoc";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +407,18 @@
         private System.Windows.Forms.TextBox input_FastSearch;
         private System.Windows.Forms.Button button_ExpandedOutput;
         private System.Windows.Forms.Button ReportOutputButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem таблицаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem файлыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem переиндексацияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выделитьВсёToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem убратьВыделенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem инвертироватьВыделенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem убратьФилтрациюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem добавитьФайлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьФайлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьФайлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьФайлВПапкеToolStripMenuItem;
     }
 }
 
