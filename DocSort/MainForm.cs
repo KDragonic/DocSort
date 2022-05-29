@@ -8,11 +8,15 @@ using System.Windows.Forms;
 
 namespace DocSort
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
+
+        /// <summary>
+        ///     Лист где хранятся записи о файлах для удобной работы с ними
+        /// </summary>
         List<DocFile> docFiles = new List<DocFile>();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             startGenColumns();
@@ -68,7 +72,7 @@ namespace DocSort
             }
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
+        private void MainForm_Resize(object sender, EventArgs e)
         {
             if (endLoadingSetting)
             {
@@ -131,7 +135,48 @@ namespace DocSort
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            editFiles();
+        }
 
+        private void editFiles()
+        {
+            var items = listFile.SelectedItems;
+            if (items.Count > 2)
+            {
+                DialogResult resualt = MessageBox.Show($"Вы уверены что хотите имзенить {items.Count} записей?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resualt.ToString() == "No") return;
+            }
+            foreach (ListViewItem item in items)
+            {
+                var path = Properties.Settings.Default.pathMainFolder + "\\" + item.SubItems[2].Text + "\\" + item.SubItems[3].Text + "\\" + item.SubItems[0].Text + item.SubItems[1].Text;
+                moveFile(path, item.SubItems[3].Text, item.SubItems[2].Text, item.SubItems[0].Text, item.SubItems[1].Text);
+            }
+            Reindexing();
+        }
+
+        private void moveFile(string path, string type, string auther, string name, string extension)
+        {
+                if (name == "") name = "(пусто)";
+                AddFile form = new AddFile(name, type, auther);
+                form.ShowDialog();
+                if (form.сlosingСode == "done")
+                {
+                    Dictionary<string, object> data = new Dictionary<string, object>();
+                    if (form.data["name"] == null) return;
+                    if (form.data["auther"] == null) return;
+                    if (form.data["type"] == null) return;
+                    data["name"] = form.data["name"];
+                    data["auther"] = form.data["auther"];
+                    data["type"] = form.data["type"];
+                    data["extension"] = Path.GetExtension(path);
+                    data["dateCreate"] = File.GetCreationTime(path);
+                    data["dateModified"] = File.GetLastWriteTime(path);
+                    string newPath = Properties.Settings.Default.pathMainFolder + "\\" + data["auther"] + "\\" + data["type"];
+
+                    DocFile file = new DocFile(data, newPath, path);
+                    docFiles.Add(file);
+                    File.Delete(path);
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -153,7 +198,7 @@ namespace DocSort
                 {
                     string name = Path.GetFileNameWithoutExtension(path);
                     if (name == "") name = "(пусто)";
-                    addFile form = new addFile(name);
+                    AddFile form = new AddFile(name);
                     form.ShowDialog();
                     if (form.сlosingСode == "done")
                     {
@@ -199,11 +244,6 @@ namespace DocSort
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Reindexing()
         {
             docFiles.Clear();
@@ -221,7 +261,7 @@ namespace DocSort
             Reindexing();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void settingsButton_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
             settings.ShowDialog();
@@ -380,7 +420,7 @@ namespace DocSort
                 DateTime dateStart = buff[0];
                 DateTime dateEnd = buff[1];
 
-                list = list.FindAll(file => file.dateCreate >= dateStart && file.dateCreate < dateEnd);
+                list = list.FindAll(file => file.dateModified >= dateStart && file.dateModified < dateEnd);
             }
 
 

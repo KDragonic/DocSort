@@ -93,5 +93,19 @@ namespace DocSort
                 }
             }
         }
+
+        private void ResetSettingButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            foreach (ListViewItem type in listView_types.Items) Properties.Settings.Default.types.Add(type.Text);
+            foreach (ListViewItem auther in listView_authors.Items) Properties.Settings.Default.authers.Add(auther.Text);
+            Application.Restart();
+        }
+
+        private void ResetALLSettingButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            Application.Restart();
+        }
     }
 }

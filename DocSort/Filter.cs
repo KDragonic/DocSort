@@ -28,10 +28,18 @@ namespace DocSort
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void DoneButton_Click(object sender, EventArgs e)
+        {
+            if (checkBox_auther.Checked) param.Add("Автор", comboBox_auther.Text);
+            if (checkBox_type.Checked) param.Add("Тип", comboBox_type.Text);
+            if (checkBox_dateTimePickers.Checked) param.Add("Дата", new DateTime[] { dateTimePicker1.Value, dateTimePicker2.Value });
+            Close();
+        }
+
+        private void checkBox_auther_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
-            if(checkBox.Checked)
+            if (checkBox.Checked)
             {
                 comboBox_auther.Enabled = true;
             }
@@ -41,12 +49,7 @@ namespace DocSort
             }
         }
 
-        private void comboBox_auther_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void checkBox_type_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
             if (checkBox.Checked)
@@ -59,12 +62,7 @@ namespace DocSort
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void checkBox_dateTimePickers_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
             if (checkBox.Checked)
@@ -77,14 +75,6 @@ namespace DocSort
                 dateTimePicker1.Enabled = false;
                 dateTimePicker2.Enabled = false;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked) param.Add("Автор", comboBox_auther.Text);
-            if (checkBox2.Checked) param.Add("Тип", comboBox_type.Text);
-            if (checkBox3.Checked) param.Add("Дата", new DateTime[] { dateTimePicker1.Value, dateTimePicker2.Value });
-            Close();
         }
     }
 }

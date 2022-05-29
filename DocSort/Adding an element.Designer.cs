@@ -28,45 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.DoneButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // DoneButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(170)))), ((int)(((byte)(90)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(207, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.DoneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(170)))), ((int)(((byte)(90)))));
+            this.DoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DoneButton.ForeColor = System.Drawing.Color.White;
+            this.DoneButton.Location = new System.Drawing.Point(155, 80);
+            this.DoneButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DoneButton.Name = "DoneButton";
+            this.DoneButton.Size = new System.Drawing.Size(144, 36);
+            this.DoneButton.TabIndex = 0;
+            this.DoneButton.Text = "Добавить";
+            this.DoneButton.UseVisualStyleBackColor = false;
+            this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
             // 
-            // button2
+            // CancelButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(6, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 44);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Отмена";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.ForeColor = System.Drawing.Color.White;
+            this.CancelButton.Location = new System.Drawing.Point(4, 80);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(144, 36);
+            this.CancelButton.TabIndex = 0;
+            this.CancelButton.Text = "Отмена";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(406, 63);
+            this.label1.Size = new System.Drawing.Size(304, 51);
             this.label1.TabIndex = 1;
             this.label1.Text = "...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,24 +78,25 @@
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(0, 63);
+            this.textBox1.Location = new System.Drawing.Point(0, 51);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(406, 30);
+            this.textBox1.Size = new System.Drawing.Size(304, 26);
             this.textBox1.TabIndex = 2;
             // 
             // Adding_an_element
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 151);
+            this.ClientSize = new System.Drawing.Size(304, 123);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.DoneButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Adding_an_element";
             this.Text = "Добавления пункта";
-            this.Load += new System.EventHandler(this.Adding_an_element_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,8 +104,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DoneButton;
+        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
     }

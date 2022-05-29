@@ -20,26 +20,22 @@ namespace DocSort
             label1.Text = name_text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             сlosingСode = "cancel";
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void DoneButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length <= 3) MessageBox.Show("Размер текста не должен быть слишком маленким (Более 2 символов)", "Ошибка");
+            if (textBox1.Text.Length <= 3) MessageBox.Show("Размер текста не должен быть слишком маленким (3-15 символов)", "Ошибка");
+            if (textBox1.Text.Length >= 15) MessageBox.Show("Размер текста не должен быть слишком большим (3-15 символов)", "Ошибка");
             else
             {
                 textInput = textBox1.Text;
                 сlosingСode = "done";
                 Close();
             }
-        }
-
-        private void Adding_an_element_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
