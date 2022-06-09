@@ -17,7 +17,7 @@ namespace DocSort
         public Adding_an_element(string name_text)
         {
             InitializeComponent();
-            label1.Text = name_text;
+            label.Text = name_text;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -28,11 +28,11 @@ namespace DocSort
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length <= 3) MessageBox.Show("Размер текста не должен быть слишком маленким (3-15 символов)", "Ошибка");
-            if (textBox1.Text.Length >= 15) MessageBox.Show("Размер текста не должен быть слишком большим (3-15 символов)", "Ошибка");
+            if (textBox.Text.Length < 3) MessageBox.Show("Размер текста не должен быть слишком маленьким (3-15 символов)", "Ошибка");
+            if (textBox.Text.Length > 15) MessageBox.Show("Размер текста не должен быть слишком большим (3-15 символов)", "Ошибка");
             else
             {
-                textInput = textBox1.Text;
+                textInput = textBox.Text;
                 сlosingСode = "done";
                 Close();
             }

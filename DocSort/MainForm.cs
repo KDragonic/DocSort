@@ -10,10 +10,6 @@ namespace DocSort
 {
     public partial class MainForm : Form
     {
-
-        /// <summary>
-        ///     Лист где хранятся записи о файлах для удобной работы с ними
-        /// </summary>
         List<DocFile> docFiles = new List<DocFile>();
 
         public MainForm()
@@ -56,7 +52,7 @@ namespace DocSort
         public void startGenColumns()
         {
             listFile.Columns.Add("Имя");
-            listFile.Columns.Add("Раширения");
+            listFile.Columns.Add("Расширения");
             listFile.Columns.Add("Автор");
             listFile.Columns.Add("Тип");
             listFile.Columns.Add("Создание");
@@ -143,7 +139,7 @@ namespace DocSort
             var items = listFile.SelectedItems;
             if (items.Count > 2)
             {
-                DialogResult resualt = MessageBox.Show($"Вы уверены что хотите имзенить {items.Count} записей?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resualt = MessageBox.Show($"Вы уверены что хотите изменить {items.Count} записей?", "Предупреждения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resualt.ToString() == "No") return;
             }
             foreach (ListViewItem item in items)
@@ -156,26 +152,26 @@ namespace DocSort
 
         private void moveFile(string path, string type, string auther, string name, string extension)
         {
-                if (name == "") name = "(пусто)";
-                AddFile form = new AddFile(name, type, auther);
-                form.ShowDialog();
-                if (form.сlosingСode == "done")
-                {
-                    Dictionary<string, object> data = new Dictionary<string, object>();
-                    if (form.data["name"] == null) return;
-                    if (form.data["auther"] == null) return;
-                    if (form.data["type"] == null) return;
-                    data["name"] = form.data["name"];
-                    data["auther"] = form.data["auther"];
-                    data["type"] = form.data["type"];
-                    data["extension"] = Path.GetExtension(path);
-                    data["dateCreate"] = File.GetCreationTime(path);
-                    data["dateModified"] = File.GetLastWriteTime(path);
-                    string newPath = Properties.Settings.Default.pathMainFolder + "\\" + data["auther"] + "\\" + data["type"];
+            if (name == "") name = "(пусто)";
+            AddFile form = new AddFile(name, type, auther);
+            form.ShowDialog();
+            if (form.сlosingСode == "done")
+            {
+                Dictionary<string, object> data = new Dictionary<string, object>();
+                if (form.data["name"] == null) return;
+                if (form.data["auther"] == null) return;
+                if (form.data["type"] == null) return;
+                data["name"] = form.data["name"];
+                data["auther"] = form.data["auther"];
+                data["type"] = form.data["type"];
+                data["extension"] = Path.GetExtension(path);
+                data["dateCreate"] = File.GetCreationTime(path);
+                data["dateModified"] = File.GetLastWriteTime(path);
+                string newPath = Properties.Settings.Default.pathMainFolder + "\\" + data["auther"] + "\\" + data["type"];
 
-                    DocFile file = new DocFile(data, newPath, path);
-                    docFiles.Add(file);
-                    File.Delete(path);
+                DocFile file = new DocFile(data, newPath, path);
+                docFiles.Add(file);
+                File.Delete(path);
             }
         }
 
@@ -333,10 +329,10 @@ namespace DocSort
                 for (int i = 0; i < docFiles.Count; i++)
                 {
                     var item = docFiles[i];
-                    table.Cell(i + 2, 1).Range.Text =  item.name;
-                    table.Cell(i + 2, 2).Range.Text =  item.auther;
+                    table.Cell(i + 2, 1).Range.Text = item.name;
+                    table.Cell(i + 2, 2).Range.Text = item.auther;
                     table.Cell(i + 2, 3).Range.Text = item.type;
-                    table.Cell(i + 2, 4).Range.Text =  item.dateCreate.ToString();
+                    table.Cell(i + 2, 4).Range.Text = item.dateCreate.ToString();
                     table.Cell(i + 2, 5).Range.Text = item.dateModified.ToString();
                 }
             }
@@ -389,7 +385,7 @@ namespace DocSort
 
         private void fastSerch(string text)
         {
-            var list = Array.FindAll(docFiles.ToArray(), file => file.name.StartsWith(text));
+            var list = Array.FindAll(docFiles.ToArray(), file => file.name.IndexOf(text) >= 0);
             listFile.Items.Clear();
             foreach (var item in list)
             {
@@ -452,7 +448,7 @@ namespace DocSort
             foreach (ListViewItem item in listFile.Items)
             {
                 item.Selected = true;
-            } 
+            }
         }
 
         private void убратьВыделенияToolStripMenuItem_Click(object sender, EventArgs e)

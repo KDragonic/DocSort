@@ -50,7 +50,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(542, 32);
+            this.label1.Size = new System.Drawing.Size(560, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Настройки";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,7 +64,7 @@
             this.listView_types.Location = new System.Drawing.Point(4, 67);
             this.listView_types.Margin = new System.Windows.Forms.Padding(2);
             this.listView_types.Name = "listView_types";
-            this.listView_types.Size = new System.Drawing.Size(160, 326);
+            this.listView_types.Size = new System.Drawing.Size(170, 326);
             this.listView_types.TabIndex = 1;
             this.listView_types.UseCompatibleStateImageBehavior = false;
             this.listView_types.View = System.Windows.Forms.View.List;
@@ -75,10 +75,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listView_authors.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listView_authors.HideSelection = false;
-            this.listView_authors.Location = new System.Drawing.Point(169, 67);
+            this.listView_authors.Location = new System.Drawing.Point(181, 67);
             this.listView_authors.Margin = new System.Windows.Forms.Padding(2);
             this.listView_authors.Name = "listView_authors";
-            this.listView_authors.Size = new System.Drawing.Size(160, 326);
+            this.listView_authors.Size = new System.Drawing.Size(170, 326);
             this.listView_authors.TabIndex = 2;
             this.listView_authors.UseCompatibleStateImageBehavior = false;
             this.listView_authors.View = System.Windows.Forms.View.List;
@@ -94,7 +94,7 @@
             this.button_save.Location = new System.Drawing.Point(4, 429);
             this.button_save.Margin = new System.Windows.Forms.Padding(2);
             this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(532, 51);
+            this.button_save.Size = new System.Drawing.Size(550, 51);
             this.button_save.TabIndex = 3;
             this.button_save.Text = "Закрыть и сохранить";
             this.button_save.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(218, 41);
+            this.label3.Location = new System.Drawing.Point(227, 41);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 24);
@@ -129,10 +129,10 @@
             this.button_add_types.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_add_types.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_add_types.ForeColor = System.Drawing.Color.White;
-            this.button_add_types.Location = new System.Drawing.Point(4, 397);
+            this.button_add_types.Location = new System.Drawing.Point(5, 398);
             this.button_add_types.Margin = new System.Windows.Forms.Padding(2);
             this.button_add_types.Name = "button_add_types";
-            this.button_add_types.Size = new System.Drawing.Size(80, 27);
+            this.button_add_types.Size = new System.Drawing.Size(89, 27);
             this.button_add_types.TabIndex = 5;
             this.button_add_types.Text = "Добавить";
             this.button_add_types.UseVisualStyleBackColor = false;
@@ -145,10 +145,10 @@
             this.button_remove_types.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_remove_types.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_remove_types.ForeColor = System.Drawing.Color.White;
-            this.button_remove_types.Location = new System.Drawing.Point(88, 397);
+            this.button_remove_types.Location = new System.Drawing.Point(97, 398);
             this.button_remove_types.Margin = new System.Windows.Forms.Padding(2);
             this.button_remove_types.Name = "button_remove_types";
-            this.button_remove_types.Size = new System.Drawing.Size(76, 27);
+            this.button_remove_types.Size = new System.Drawing.Size(78, 27);
             this.button_remove_types.TabIndex = 6;
             this.button_remove_types.Text = "Удалить";
             this.button_remove_types.UseVisualStyleBackColor = false;
@@ -161,10 +161,10 @@
             this.button_add_author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_add_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_add_author.ForeColor = System.Drawing.Color.White;
-            this.button_add_author.Location = new System.Drawing.Point(169, 397);
+            this.button_add_author.Location = new System.Drawing.Point(181, 398);
             this.button_add_author.Margin = new System.Windows.Forms.Padding(2);
             this.button_add_author.Name = "button_add_author";
-            this.button_add_author.Size = new System.Drawing.Size(80, 27);
+            this.button_add_author.Size = new System.Drawing.Size(89, 27);
             this.button_add_author.TabIndex = 5;
             this.button_add_author.Text = "Добавить";
             this.button_add_author.UseVisualStyleBackColor = false;
@@ -177,7 +177,7 @@
             this.button_remove_author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_remove_author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_remove_author.ForeColor = System.Drawing.Color.White;
-            this.button_remove_author.Location = new System.Drawing.Point(252, 397);
+            this.button_remove_author.Location = new System.Drawing.Point(273, 398);
             this.button_remove_author.Margin = new System.Windows.Forms.Padding(2);
             this.button_remove_author.Name = "button_remove_author";
             this.button_remove_author.Size = new System.Drawing.Size(76, 27);
@@ -190,7 +190,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.label4.Location = new System.Drawing.Point(381, 41);
+            this.label4.Location = new System.Drawing.Point(397, 41);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 24);
@@ -204,7 +204,7 @@
             this.ResetSettingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ResetSettingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ResetSettingButton.ForeColor = System.Drawing.Color.White;
-            this.ResetSettingButton.Location = new System.Drawing.Point(339, 67);
+            this.ResetSettingButton.Location = new System.Drawing.Point(355, 67);
             this.ResetSettingButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetSettingButton.Name = "ResetSettingButton";
             this.ResetSettingButton.Size = new System.Drawing.Size(197, 53);
@@ -220,7 +220,7 @@
             this.ResetALLSettingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ResetALLSettingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ResetALLSettingButton.ForeColor = System.Drawing.Color.White;
-            this.ResetALLSettingButton.Location = new System.Drawing.Point(339, 126);
+            this.ResetALLSettingButton.Location = new System.Drawing.Point(355, 126);
             this.ResetALLSettingButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetALLSettingButton.Name = "ResetALLSettingButton";
             this.ResetALLSettingButton.Size = new System.Drawing.Size(197, 53);
@@ -233,7 +233,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 484);
+            this.ClientSize = new System.Drawing.Size(560, 484);
+            this.ControlBox = false;
             this.Controls.Add(this.ResetALLSettingButton);
             this.Controls.Add(this.ResetSettingButton);
             this.Controls.Add(this.label4);
@@ -251,7 +252,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Settings";
-            this.Text = "Settings";
+            this.Text = "Настройки";
             this.Load += new System.EventHandler(this.Settings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

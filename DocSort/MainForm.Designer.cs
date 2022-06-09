@@ -42,6 +42,16 @@
             this.button_ExpandedOutput = new System.Windows.Forms.Button();
             this.ReportOutputButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.быстрыеДействиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.периToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выделитьВсеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.убратьВыделенияToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.инвентироватьВыделенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.убратьФильтрациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьФайлВПапкеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.таблицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.переиндексацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выделитьВсёToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +78,7 @@
             this.listFile.Location = new System.Drawing.Point(0, 93);
             this.listFile.Margin = new System.Windows.Forms.Padding(2);
             this.listFile.Name = "listFile";
-            this.listFile.Size = new System.Drawing.Size(1220, 400);
+            this.listFile.Size = new System.Drawing.Size(1230, 423);
             this.listFile.TabIndex = 0;
             this.listFile.UseCompatibleStateImageBehavior = false;
             this.listFile.View = System.Windows.Forms.View.Details;
@@ -151,10 +161,10 @@
             this.button_reindexing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_reindexing.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_reindexing.ForeColor = System.Drawing.Color.White;
-            this.button_reindexing.Location = new System.Drawing.Point(0, 517);
+            this.button_reindexing.Location = new System.Drawing.Point(0, 574);
             this.button_reindexing.Margin = new System.Windows.Forms.Padding(2);
             this.button_reindexing.Name = "button_reindexing";
-            this.button_reindexing.Size = new System.Drawing.Size(997, 29);
+            this.button_reindexing.Size = new System.Drawing.Size(1230, 29);
             this.button_reindexing.TabIndex = 3;
             this.button_reindexing.Text = "Переиндексация файлов";
             this.button_reindexing.UseVisualStyleBackColor = false;
@@ -215,25 +225,26 @@
             this.input_FastSearch.BackColor = System.Drawing.Color.White;
             this.input_FastSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.input_FastSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.input_FastSearch.Location = new System.Drawing.Point(0, 493);
+            this.input_FastSearch.Location = new System.Drawing.Point(0, 551);
             this.input_FastSearch.Margin = new System.Windows.Forms.Padding(0);
             this.input_FastSearch.Name = "input_FastSearch";
-            this.input_FastSearch.Size = new System.Drawing.Size(997, 21);
+            this.input_FastSearch.Size = new System.Drawing.Size(1230, 21);
             this.input_FastSearch.TabIndex = 7;
             this.input_FastSearch.TextChanged += new System.EventHandler(this.input_FastSearch_TextChanged);
             // 
             // button_ExpandedOutput
             // 
-            this.button_ExpandedOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_ExpandedOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.button_ExpandedOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(170)))));
             this.button_ExpandedOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_ExpandedOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button_ExpandedOutput.Location = new System.Drawing.Point(997, 492);
+            this.button_ExpandedOutput.Location = new System.Drawing.Point(0, 518);
             this.button_ExpandedOutput.Margin = new System.Windows.Forms.Padding(0);
             this.button_ExpandedOutput.Name = "button_ExpandedOutput";
-            this.button_ExpandedOutput.Size = new System.Drawing.Size(223, 54);
+            this.button_ExpandedOutput.Size = new System.Drawing.Size(1230, 33);
             this.button_ExpandedOutput.TabIndex = 8;
-            this.button_ExpandedOutput.Text = "Раширеный вывод";
+            this.button_ExpandedOutput.Text = "Фильтрация";
             this.button_ExpandedOutput.UseVisualStyleBackColor = false;
             this.button_ExpandedOutput.Click += new System.EventHandler(this.button_ExpandedOutput_Click);
             // 
@@ -249,7 +260,7 @@
             this.ReportOutputButton.Name = "ReportOutputButton";
             this.ReportOutputButton.Size = new System.Drawing.Size(236, 29);
             this.ReportOutputButton.TabIndex = 6;
-            this.ReportOutputButton.Text = "Отчёт: выведеные";
+            this.ReportOutputButton.Text = "Отчёт: выведенные";
             this.ReportOutputButton.UseVisualStyleBackColor = false;
             this.ReportOutputButton.Click += new System.EventHandler(this.ReportOutputButton_Click);
             // 
@@ -257,14 +268,102 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.таблицаToolStripMenuItem,
-            this.файлыToolStripMenuItem});
+            this.быстрыеДействиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1220, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // быстрыеДействиеToolStripMenuItem
+            // 
+            this.быстрыеДействиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.периToolStripMenuItem,
+            this.выделитьВсеToolStripMenuItem,
+            this.убратьВыделенияToolStripMenuItem1,
+            this.инвентироватьВыделенияToolStripMenuItem,
+            this.убратьФильтрациюToolStripMenuItem,
+            this.добавитьФайлToolStripMenuItem1,
+            this.удалитьФайлToolStripMenuItem1,
+            this.открытьФайлToolStripMenuItem1,
+            this.открытьФайлВПапкеToolStripMenuItem1});
+            this.быстрыеДействиеToolStripMenuItem.Name = "быстрыеДействиеToolStripMenuItem";
+            this.быстрыеДействиеToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.быстрыеДействиеToolStripMenuItem.Text = "Быстрые действие";
+            // 
+            // периToolStripMenuItem
+            // 
+            this.периToolStripMenuItem.Name = "периToolStripMenuItem";
+            this.периToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.периToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.периToolStripMenuItem.Text = "Переиндексация";
+            this.периToolStripMenuItem.Click += new System.EventHandler(this.переиндексацияToolStripMenuItem_Click);
+            // 
+            // выделитьВсеToolStripMenuItem
+            // 
+            this.выделитьВсеToolStripMenuItem.Name = "выделитьВсеToolStripMenuItem";
+            this.выделитьВсеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.выделитьВсеToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.выделитьВсеToolStripMenuItem.Text = "Выделить все";
+            this.выделитьВсеToolStripMenuItem.Click += new System.EventHandler(this.выделитьВсёToolStripMenuItem_Click);
+            // 
+            // убратьВыделенияToolStripMenuItem1
+            // 
+            this.убратьВыделенияToolStripMenuItem1.Name = "убратьВыделенияToolStripMenuItem1";
+            this.убратьВыделенияToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.убратьВыделенияToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
+            this.убратьВыделенияToolStripMenuItem1.Text = "Убрать выделения";
+            this.убратьВыделенияToolStripMenuItem1.Click += new System.EventHandler(this.убратьВыделенияToolStripMenuItem_Click);
+            // 
+            // инвентироватьВыделенияToolStripMenuItem
+            // 
+            this.инвентироватьВыделенияToolStripMenuItem.Name = "инвентироватьВыделенияToolStripMenuItem";
+            this.инвентироватьВыделенияToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.инвентироватьВыделенияToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.инвентироватьВыделенияToolStripMenuItem.Text = "Инвентировать выделения";
+            this.инвентироватьВыделенияToolStripMenuItem.Click += new System.EventHandler(this.инвертироватьВыделенияToolStripMenuItem_Click);
+            // 
+            // убратьФильтрациюToolStripMenuItem
+            // 
+            this.убратьФильтрациюToolStripMenuItem.Name = "убратьФильтрациюToolStripMenuItem";
+            this.убратьФильтрациюToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.убратьФильтрациюToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.убратьФильтрациюToolStripMenuItem.Text = "Убрать фильтрацию";
+            this.убратьФильтрациюToolStripMenuItem.Click += new System.EventHandler(this.убратьФилтрациюToolStripMenuItem_Click);
+            // 
+            // добавитьФайлToolStripMenuItem1
+            // 
+            this.добавитьФайлToolStripMenuItem1.Name = "добавитьФайлToolStripMenuItem1";
+            this.добавитьФайлToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.добавитьФайлToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
+            this.добавитьФайлToolStripMenuItem1.Text = "Добавить файл";
+            this.добавитьФайлToolStripMenuItem1.Click += new System.EventHandler(this.убратьФилтрациюToolStripMenuItem_Click);
+            // 
+            // удалитьФайлToolStripMenuItem1
+            // 
+            this.удалитьФайлToolStripMenuItem1.Name = "удалитьФайлToolStripMenuItem1";
+            this.удалитьФайлToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.удалитьФайлToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
+            this.удалитьФайлToolStripMenuItem1.Text = "Удалить файл";
+            this.удалитьФайлToolStripMenuItem1.Click += new System.EventHandler(this.удалитьФайлToolStripMenuItem_Click);
+            // 
+            // открытьФайлToolStripMenuItem1
+            // 
+            this.открытьФайлToolStripMenuItem1.Name = "открытьФайлToolStripMenuItem1";
+            this.открытьФайлToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.открытьФайлToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
+            this.открытьФайлToolStripMenuItem1.Text = "Открыть файл";
+            this.открытьФайлToolStripMenuItem1.Click += new System.EventHandler(this.открытьФайлToolStripMenuItem_Click);
+            // 
+            // открытьФайлВПапкеToolStripMenuItem1
+            // 
+            this.открытьФайлВПапкеToolStripMenuItem1.Name = "открытьФайлВПапкеToolStripMenuItem1";
+            this.открытьФайлВПапкеToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.O)));
+            this.открытьФайлВПапкеToolStripMenuItem1.Size = new System.Drawing.Size(272, 22);
+            this.открытьФайлВПапкеToolStripMenuItem1.Text = "Открыть файл в папке";
+            this.открытьФайлВПапкеToolStripMenuItem1.Click += new System.EventHandler(this.открытьФайлВПапкеToolStripMenuItem_Click);
             // 
             // таблицаToolStripMenuItem
             // 
@@ -315,7 +414,7 @@
             this.убратьФилтрациюToolStripMenuItem.Name = "убратьФилтрациюToolStripMenuItem";
             this.убратьФилтрациюToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.убратьФилтрациюToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.убратьФилтрациюToolStripMenuItem.Text = "Убрать филтрацию";
+            this.убратьФилтрациюToolStripMenuItem.Text = "Убрать фильтрацию";
             this.убратьФилтрациюToolStripMenuItem.Click += new System.EventHandler(this.убратьФилтрациюToolStripMenuItem_Click);
             // 
             // файлыToolStripMenuItem
@@ -367,7 +466,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1220, 546);
+            this.ClientSize = new System.Drawing.Size(1230, 605);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button_ExpandedOutput);
             this.Controls.Add(this.input_FastSearch);
@@ -386,7 +485,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "SortDoc";
+            this.Text = "DocSort";
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -420,6 +519,16 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьФайлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьФайлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьФайлВПапкеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem быстрыеДействиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem периToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выделитьВсеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem убратьВыделенияToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem инвентироватьВыделенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem убратьФильтрациюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem добавитьФайлToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem удалитьФайлToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem открытьФайлToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem открытьФайлВПапкеToolStripMenuItem1;
     }
 }
 
